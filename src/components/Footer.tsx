@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "./Button";
+import ContactForm from "./ContactForm";
 import Reveal from "./Reveal";
 import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
@@ -11,10 +11,11 @@ export default function Footer({ content }: { content: SiteContent["footer"] }) 
           <h2 className="text-[36px] font-semibold leading-[1.1] tracking-[-1.44px] sm:text-[48px]">
             {content.headline}
           </h2>
-          <div className="mt-8 flex justify-center">
-            <Button href={`mailto:${content.email}`} variant="light">
-              {content.cta.label}
-            </Button>
+          <p className="mt-4 text-[16px] leading-[1.4] tracking-[-0.32px] text-white/60">
+            Send a note and I&apos;ll get back to you within a couple of days.
+          </p>
+          <div className="mt-10">
+            <ContactForm />
           </div>
         </Reveal>
 
