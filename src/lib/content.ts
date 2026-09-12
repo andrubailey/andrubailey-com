@@ -1,4 +1,5 @@
 export const nav = {
+  name: "Andru Bailey",
   links: [
     { label: "Work", href: "/work" },
     { label: "About", href: "/about" },
