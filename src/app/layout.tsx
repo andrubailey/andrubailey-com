@@ -9,7 +9,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Andru Bailey — Web design for custom home builders",
+  title: "Andru Bailey | Web design for custom home builders",
   description:
     "Positioning, design and builds that show your craftsmanship online as well as your homes do.",
 };

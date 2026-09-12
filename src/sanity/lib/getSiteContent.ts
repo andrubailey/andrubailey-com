@@ -20,14 +20,10 @@ type RawSiteSettings = {
   ctaLabel?: string;
   whatYouDoHeadline?: string;
   whatYouDoSubheadline?: string;
-  whatYouDoSubheadlineMobile?: string;
   whatYouDoBody?: string;
-  whatYouDoBodyMobile?: string;
   aboutHeadline?: string;
   aboutBody?: PortableTextBlock[];
-  aboutBodyMobile?: PortableTextBlock[];
   aboutCtaLead?: string;
-  aboutCtaLeadMobile?: string;
   worksHeadline?: string;
   worksSubheadline?: string;
   worksSubheadlineMobile?: string;
@@ -75,12 +71,7 @@ export async function getSiteContent() {
 
   const ctaLabel = settings?.ctaLabel || fallbackHero.cta.label;
   const aboutParagraphs = portableTextToParagraphs(settings?.aboutBody);
-  const aboutParagraphsMobile = portableTextToParagraphs(settings?.aboutBodyMobile);
 
-  const whatYouDoSubheadline = settings?.whatYouDoSubheadline || fallbackWhatYouDo.subheadline;
-  const whatYouDoBody = settings?.whatYouDoBody || fallbackWhatYouDo.body;
-  const aboutBody = aboutParagraphs.length ? aboutParagraphs : fallbackAbout.body;
-  const aboutCtaLead = settings?.aboutCtaLead || fallbackAbout.ctaLead;
   const worksSubheadline = settings?.worksSubheadline || fallbackWorks.subheadline;
   const processSubheadline = settings?.processSubheadline || fallbackProcess.subheadline;
 
@@ -93,21 +84,14 @@ export async function getSiteContent() {
     },
     whatYouDo: {
       headline: settings?.whatYouDoHeadline || fallbackWhatYouDo.headline,
-      subheadline: whatYouDoSubheadline,
-      subheadlineMobile:
-        settings?.whatYouDoSubheadlineMobile ||
-        fallbackWhatYouDo.subheadlineMobile ||
-        whatYouDoSubheadline,
-      body: whatYouDoBody,
-      bodyMobile: settings?.whatYouDoBodyMobile || fallbackWhatYouDo.bodyMobile || whatYouDoBody,
+      subheadline: settings?.whatYouDoSubheadline || fallbackWhatYouDo.subheadline,
+      body: settings?.whatYouDoBody || fallbackWhatYouDo.body,
       cta: fallbackWhatYouDo.cta,
     },
     about: {
       headline: settings?.aboutHeadline || fallbackAbout.headline,
-      body: aboutBody,
-      bodyMobile: aboutParagraphsMobile.length ? aboutParagraphsMobile : fallbackAbout.bodyMobile,
-      ctaLead: aboutCtaLead,
-      ctaLeadMobile: settings?.aboutCtaLeadMobile || fallbackAbout.ctaLeadMobile || aboutCtaLead,
+      body: aboutParagraphs.length ? aboutParagraphs : fallbackAbout.body,
+      ctaLead: settings?.aboutCtaLead || fallbackAbout.ctaLead,
       cta: { label: ctaLabel, href: fallbackAbout.cta.href },
     },
     works: {

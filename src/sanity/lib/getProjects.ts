@@ -20,7 +20,7 @@ export async function getProjects(): Promise<SanityProject[]> {
     });
     if (projects?.length) return projects;
   } catch {
-    // Sanity not reachable (e.g. offline build) — fall through to static content.
+    // Sanity not reachable (e.g. offline build), fall through to static content.
   }
 
   return fallbackProjects.map((project) => ({

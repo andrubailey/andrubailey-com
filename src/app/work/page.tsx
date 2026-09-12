@@ -6,7 +6,7 @@ import { getProjects } from "@/sanity/lib/getProjects";
 import { getSiteContent } from "@/sanity/lib/getSiteContent";
 
 export const metadata: Metadata = {
-  title: "Work — Andru Bailey",
+  title: "Work | Andru Bailey",
 };
 
 export default async function WorkPage() {

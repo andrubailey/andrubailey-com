@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { getSiteContent } from "@/sanity/lib/getSiteContent";
 
 export const metadata: Metadata = {
-  title: "About — Andru Bailey",
+  title: "About | Andru Bailey",
 };
 
 export default async function AboutPage() {

@@ -10,7 +10,7 @@ export const nav = {
 
 export const hero = {
   eyebrow: "ANDRU BAILEY",
-  headline: "Helping custom home builders fix the website that's underselling their homes.",
+  headline: "Fixing websites that undersell your homes.",
   subheadline:
     "Positioning, design and builds that show your craftsmanship online as well as your homes do.",
   cta: { label: "Get started", href: "/#contact" },
@@ -24,15 +24,8 @@ export const about = {
     "That last one comes up constantly, and the answer is yes: a referral looks you up before they call. Your site isn't out finding you leads. It's deciding whether the ones you already have take you seriously.",
     "The good news is you don't have to work any of this out on your own. That's my job. I'll go through your site the way a serious buyer would, tell you exactly what's costing you, and if it makes sense from there, build you one that finally matches the work.",
   ],
-  bodyMobile: [
-    "Hey, I'm Andru Bailey — eight years building websites, then a few years in real estate.",
-    "That taught me buyers price the same home differently based on how it's presented.",
-    "Most builder sites undersell extraordinary homes. I fix that, starting with an honest audit.",
-  ],
   ctaLead:
     "Send me your site and I'll tell you the three specific things costing you trust with serious buyers, in writing, within 48 hours.",
-  ctaLeadMobile:
-    "Send me your site — I'll find what's costing you trust, in writing, within 48 hours.",
   cta: { label: "Get started", href: "/#contact" },
 };
 
@@ -40,11 +33,7 @@ export const whatYouDo = {
   headline: "Here's How I Can Help",
   subheadline:
     "I handle everything you need to plan, design, build, and launch a site you're glad to send people to.",
-  subheadlineMobile:
-    "Everything you need to plan, design, build, and launch a site you're proud to share.",
   body: "Site audits, positioning and messaging, page maps, copywriting, design, project and portfolio pages, photography direction, development, CMS setup so you can add finished homes yourself, launch, and ongoing updates.",
-  bodyMobile:
-    "Audits, positioning, copywriting, design, development, and a CMS so you can add finished homes yourself.",
   cta: { label: "About me", href: "/about" },
 };
 
@@ -114,7 +103,7 @@ export const faqs = [
     q: "Most of my work comes from referrals. Do I really need a website?",
     a: "Yes, not for the reason you'd expect. Your site isn't out finding leads, it's deciding whether the referrals you already have take you seriously. Someone hears your name at dinner, looks you up that night, and forms an opinion before you ever speak. The site's job is making sure that opinion matches the work.",
     aMobile:
-      "Yes — your site isn't finding leads, it's deciding whether the referrals you already have take you seriously.",
+      "Yes, your site isn't finding leads, it's deciding whether the referrals you already have take you seriously.",
   },
   {
     q: "Why do I have to pay for an audit before you'll quote me a build?",
@@ -138,23 +127,23 @@ export const faqs = [
     q: "You're one person. What if you get busy, or sick, or disappear?",
     a: "Fair question. One person is also why you're not handed to an assistant after the sales call. You're working with me from start to finish. Payments are tied to milestones, so you're never paying far ahead of delivered work, and everything is built on standard tools you own rather than a proprietary platform. You're never locked to me.",
     aMobile:
-      "Fair question. You work with me start to finish, pay by milestone, and own everything — you're never locked in.",
+      "Fair question. You work with me start to finish, pay by milestone, and own everything. You're never locked in.",
   },
   {
     q: "Do I need professional photography first?",
     a: "It's the one thing I can't substitute for. Design can make good photography look exceptional. It can't make phone photos look like a $3M home. If you don't have professional shots yet, that's where I'd spend the money before hiring me. I'm glad to point you toward photographers who shoot this kind of work.",
     aMobile:
-      "Yes — design can elevate great photos, but it can't fix phone shots. Get photography first; I can recommend someone.",
+      "Yes, design can elevate great photos, but it can't fix phone shots. Get photography first; I can recommend someone.",
   },
   {
     q: "How long does it take, and how much of my time?",
     a: "Most builds run 4-6 weeks from approved plan to launch. Your side of it is around four hours total: the 90-minute session, an hour pulling together project details and photos, and one round of feedback on the homepage. After that you're reviewing, not working.",
-    aMobile: "4–6 weeks from approved plan to launch. Your time: about four hours total, then just reviewing.",
+    aMobile: "4-6 weeks from approved plan to launch. Your time: about four hours total, then just reviewing.",
   },
   {
     q: "Will I be able to add new homes myself?",
     a: "Yes, and that's built in deliberately. When a project wraps and the photos come back, you add it in a few minutes. No emailing me, no invoice for a content update.",
-    aMobile: "Yes, by design. When a project wraps, you add it yourself in minutes — no emails, no invoices.",
+    aMobile: "Yes, by design. When a project wraps, you add it yourself in minutes, no emails or invoices.",
   },
 ];
 
@@ -168,7 +157,7 @@ export const footer = {
     { label: "About", href: "/about" },
     { label: "FAQ", href: "/#faq" },
   ],
-  // TODO: fill in the accounts you actually use — drop the rest.
+  // TODO: fill in the accounts you actually use, drop the rest.
   social: [
     { label: "X (Twitter)", href: "#" },
     { label: "Instagram", href: "#" },
