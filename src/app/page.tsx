@@ -7,22 +7,23 @@ import Process from "@/components/Process";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import { getProjects } from "@/sanity/lib/getProjects";
+import { getSiteContent } from "@/sanity/lib/getSiteContent";
 
 export default async function Home() {
-  const projects = await getProjects();
+  const [projects, content] = await Promise.all([getProjects(), getSiteContent()]);
 
   return (
     <>
-      <Nav />
+      <Nav ctaLabel={content.hero.cta.label} />
       <main className="flex-1">
-        <Hero featured={projects[0]} />
-        <WhatYouDo />
-        <About />
-        <Works projects={projects} />
-        <Process />
-        <Faq />
+        <Hero content={content.hero} featured={projects[0]} />
+        <WhatYouDo content={content.whatYouDo} />
+        <About content={content.about} />
+        <Works content={content.works} projects={projects} />
+        <Process content={content.process} />
+        <Faq items={content.faqs} />
       </main>
-      <Footer />
+      <Footer content={content.footer} />
     </>
   );
 }

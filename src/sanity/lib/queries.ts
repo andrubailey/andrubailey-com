@@ -11,3 +11,23 @@ export const PROJECTS_QUERY = defineQuery(
     link
   }`,
 );
+
+export const SITE_SETTINGS_QUERY = defineQuery(
+  `*[_type == "siteSettings"][0]`,
+);
+
+export const PROCESS_STEPS_QUERY = defineQuery(
+  `*[_type == "processStep"] | order(order asc){
+    _id,
+    title,
+    description
+  }`,
+);
+
+export const FAQS_QUERY = defineQuery(
+  `*[_type == "faq"] | order(order asc){
+    _id,
+    question,
+    answer
+  }`,
+);

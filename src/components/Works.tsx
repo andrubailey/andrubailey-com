@@ -1,17 +1,23 @@
 import Image from "next/image";
-import { works } from "@/lib/content";
 import { urlForImage } from "@/sanity/lib/image";
 import type { SanityProject } from "@/sanity/lib/getProjects";
+import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
-export default function Works({ projects }: { projects: SanityProject[] }) {
+export default function Works({
+  content,
+  projects,
+}: {
+  content: SiteContent["works"];
+  projects: SanityProject[];
+}) {
   return (
     <section id="work" className="bg-soft py-24">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="text-[36px] font-semibold leading-[1.1] tracking-[-1.44px] sm:text-[48px]">
-          {works.headline}
+          {content.headline}
         </h2>
         <p className="mt-4 text-[16px] leading-[1.4] tracking-[-0.32px] text-muted">
-          {works.subheadline}
+          {content.subheadline}
         </p>
       </div>
 

@@ -1,7 +1,7 @@
 import Button from "./Button";
-import { about } from "@/lib/content";
+import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
-export default function About() {
+export default function About({ content }: { content: SiteContent["about"] }) {
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-24">
       <div className="grid gap-12 lg:grid-cols-[320px_1fr] lg:gap-16">
@@ -12,10 +12,10 @@ export default function About() {
 
         <div>
           <h2 className="max-w-2xl text-[28px] font-medium leading-[1.2] tracking-[-0.8px] sm:text-[36px]">
-            {about.headline}
+            {content.headline}
           </h2>
           <div className="mt-6 space-y-5">
-            {about.body.map((paragraph) => (
+            {content.body.map((paragraph) => (
               <p
                 key={paragraph.slice(0, 24)}
                 className="max-w-2xl text-[16px] leading-[1.5] tracking-[-0.32px] text-muted"
@@ -25,10 +25,10 @@ export default function About() {
             ))}
           </div>
           <p className="mt-6 max-w-2xl text-[16px] font-medium leading-[1.5] tracking-[-0.32px] text-ink">
-            {about.ctaLead}
+            {content.ctaLead}
           </p>
           <div className="mt-8">
-            <Button href={about.cta.href}>{about.cta.label}</Button>
+            <Button href={content.cta.href}>{content.cta.label}</Button>
           </div>
         </div>
       </div>

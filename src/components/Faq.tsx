@@ -1,6 +1,6 @@
-import { faqs } from "@/lib/content";
+import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
-export default function Faq() {
+export default function Faq({ items }: { items: SiteContent["faqs"] }) {
   return (
     <section id="faq" className="bg-soft py-24">
       <div className="mx-auto max-w-3xl px-6">
@@ -9,7 +9,7 @@ export default function Faq() {
         </h2>
 
         <div className="mt-12 divide-y divide-border-soft rounded-[32px] border border-border-soft bg-white">
-          {faqs.map((faq) => (
+          {items.map((faq) => (
             <details key={faq.q} className="group p-6 sm:p-8">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium tracking-[-0.32px] marker:content-none">
                 {faq.q}

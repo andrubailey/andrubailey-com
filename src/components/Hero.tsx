@@ -1,23 +1,29 @@
 import Image from "next/image";
 import Button from "./Button";
-import { hero } from "@/lib/content";
 import { urlForImage } from "@/sanity/lib/image";
 import type { SanityProject } from "@/sanity/lib/getProjects";
+import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
-export default function Hero({ featured }: { featured?: SanityProject }) {
+export default function Hero({
+  content,
+  featured,
+}: {
+  content: SiteContent["hero"];
+  featured?: SanityProject;
+}) {
   return (
     <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24">
       <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
         <div>
-          <p className="text-[16px] tracking-[-0.32px] text-muted">{hero.eyebrow}</p>
+          <p className="text-[16px] tracking-[-0.32px] text-muted">{content.eyebrow}</p>
           <h1 className="mt-6 text-[40px] font-semibold leading-[1.1] tracking-[-1.6px] sm:text-[56px] sm:tracking-[-2.24px]">
-            {hero.headline}
+            {content.headline}
           </h1>
           <p className="mt-6 max-w-md text-[16px] leading-[1.4] tracking-[-0.32px] text-muted">
-            {hero.subheadline}
+            {content.subheadline}
           </p>
           <div className="mt-8">
-            <Button href={hero.cta.href}>{hero.cta.label}</Button>
+            <Button href={content.cta.href}>{content.cta.label}</Button>
           </div>
         </div>
 

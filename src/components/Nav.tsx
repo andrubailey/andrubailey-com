@@ -2,7 +2,7 @@ import Link from "next/link";
 import Button from "./Button";
 import { nav } from "@/lib/content";
 
-export default function Nav() {
+export default function Nav({ ctaLabel }: { ctaLabel?: string }) {
   return (
     <header className="sticky top-0 z-50 border-b border-border-soft bg-white/90 backdrop-blur-sm">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
@@ -26,7 +26,7 @@ export default function Nav() {
         </nav>
 
         <Button href={nav.cta.href} className="h-10 px-5 text-[15px]">
-          {nav.cta.label}
+          {ctaLabel || nav.cta.label}
         </Button>
       </div>
     </header>

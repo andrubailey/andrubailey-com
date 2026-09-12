@@ -15,7 +15,9 @@ export type SanityProject = {
 
 export async function getProjects(): Promise<SanityProject[]> {
   try {
-    const projects = await client.fetch<SanityProject[]>(PROJECTS_QUERY);
+    const projects = await client.fetch<SanityProject[]>(PROJECTS_QUERY, {}, {
+      next: { revalidate: 60 },
+    });
     if (projects?.length) return projects;
   } catch {
     // Sanity not reachable (e.g. offline build) — fall through to static content.
