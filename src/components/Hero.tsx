@@ -15,11 +15,13 @@ export default function Hero({
     <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24">
       <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
         <div>
-          <p className="text-[16px] tracking-[-0.32px] text-muted">{content.eyebrow}</p>
+          <p className="text-[15px] tracking-[-0.3px] text-muted sm:text-[16px] sm:tracking-[-0.32px]">
+            {content.eyebrow}
+          </p>
           <h1 className="mt-6 text-[40px] font-semibold leading-[1.1] tracking-[-1.6px] sm:text-[56px] sm:tracking-[-2.24px]">
             {content.headline}
           </h1>
-          <p className="mt-6 max-w-md text-[16px] leading-[1.4] tracking-[-0.32px] text-muted">
+          <p className="mt-6 max-w-md text-[15px] leading-[1.4] tracking-[-0.3px] text-muted sm:text-[16px] sm:tracking-[-0.32px]">
             {content.subheadline}
           </p>
           <div className="mt-8">

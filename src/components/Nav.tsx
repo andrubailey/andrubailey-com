@@ -1,12 +1,15 @@
 import Link from "next/link";
 import Button from "./Button";
+import MobileNav from "./MobileNav";
 import { nav } from "@/lib/content";
 
 export default function Nav({ ctaLabel }: { ctaLabel?: string }) {
+  const cta = ctaLabel || nav.cta.label;
+
   return (
     <header className="sticky top-0 z-50 border-b border-border-soft bg-white/90 backdrop-blur-sm">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-        <Link href="#" className="flex items-center gap-3">
+      <div className="relative mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+        <Link href="/" className="flex items-center gap-3">
           <span className="flex size-10 items-center justify-center rounded-full bg-soft text-sm font-medium">
             AB
           </span>
@@ -25,9 +28,13 @@ export default function Nav({ ctaLabel }: { ctaLabel?: string }) {
           ))}
         </nav>
 
-        <Button href={nav.cta.href} className="h-10 px-5 text-[15px]">
-          {ctaLabel || nav.cta.label}
-        </Button>
+        <span className="hidden sm:inline-flex">
+          <Button href={nav.cta.href} className="h-10 px-5 text-[15px]">
+            {cta}
+          </Button>
+        </span>
+
+        <MobileNav ctaLabel={cta} />
       </div>
     </header>
   );

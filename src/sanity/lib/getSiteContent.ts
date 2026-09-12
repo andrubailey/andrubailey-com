@@ -76,6 +76,7 @@ export async function getSiteContent() {
       headline: settings?.whatYouDoHeadline || fallbackWhatYouDo.headline,
       subheadline: settings?.whatYouDoSubheadline || fallbackWhatYouDo.subheadline,
       body: settings?.whatYouDoBody || fallbackWhatYouDo.body,
+      cta: fallbackWhatYouDo.cta,
     },
     about: {
       headline: settings?.aboutHeadline || fallbackAbout.headline,

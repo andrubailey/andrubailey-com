@@ -1,11 +1,11 @@
 export const nav = {
   name: "Andru Bailey",
   links: [
-    { label: "Work", href: "#work" },
-    { label: "About", href: "#about" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Work", href: "/#work" },
+    { label: "About", href: "/about" },
+    { label: "FAQ", href: "/#faq" },
   ],
-  cta: { label: "Get started", href: "#contact" },
+  cta: { label: "Get started", href: "/#contact" },
 };
 
 export const hero = {
@@ -13,7 +13,7 @@ export const hero = {
   headline: "Helping custom home builders fix the website that's underselling their homes.",
   subheadline:
     "Positioning, design and builds that show your craftsmanship online as well as your homes do.",
-  cta: { label: "Get started", href: "#contact" },
+  cta: { label: "Get started", href: "/#contact" },
 };
 
 export const about = {
@@ -25,7 +25,7 @@ export const about = {
     "The good news is you don't have to work any of this out on your own. That's my job. I'll go through your site the way a serious buyer would, tell you exactly what's costing you, and if it makes sense from there, build you one that finally matches the work.",
   ],
   ctaLead: "Send me your site and I'll tell you the three specific things costing you trust with serious buyers, in writing, within 48 hours.",
-  cta: { label: "Get started", href: "#contact" },
+  cta: { label: "Get started", href: "/#contact" },
 };
 
 export const whatYouDo = {
@@ -33,6 +33,7 @@ export const whatYouDo = {
   subheadline:
     "I handle everything you need to plan, design, build, and launch a site you're glad to send people to.",
   body: "Site audits, positioning and messaging, page maps, copywriting, design, project and portfolio pages, photography direction, development, CMS setup so you can add finished homes yourself, launch, and ongoing updates.",
+  cta: { label: "About me", href: "/about" },
 };
 
 export type Project = {
@@ -126,13 +127,13 @@ export const faqs = [
 
 export const footer = {
   headline: "Need a site that shows the work the way it deserves?",
-  cta: { label: "Get started", href: "#contact" },
+  cta: { label: "Get started", href: "/#contact" },
   name: "Andru Bailey",
   pages: [
-    { label: "Home", href: "#" },
-    { label: "Work", href: "#work" },
-    { label: "About", href: "#about" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Home", href: "/" },
+    { label: "Work", href: "/#work" },
+    { label: "About", href: "/about" },
+    { label: "FAQ", href: "/#faq" },
   ],
   // TODO: fill in the accounts you actually use — drop the rest.
   social: [

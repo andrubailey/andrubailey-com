@@ -1,7 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import WhatYouDo from "@/components/WhatYouDo";
-import About from "@/components/About";
 import Works from "@/components/Works";
 import Process from "@/components/Process";
 import Faq from "@/components/Faq";
@@ -18,7 +17,6 @@ export default async function Home() {
       <main className="flex-1">
         <Hero content={content.hero} featured={projects[0]} />
         <WhatYouDo content={content.whatYouDo} />
-        <About content={content.about} />
         <Works content={content.works} projects={projects} />
         <Process content={content.process} />
         <Faq items={content.faqs} />

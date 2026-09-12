@@ -3,7 +3,7 @@ import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
 export default function About({ content }: { content: SiteContent["about"] }) {
   return (
-    <section id="about" className="mx-auto max-w-6xl px-6 py-24">
+    <section className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
       <div className="grid gap-12 lg:grid-cols-[320px_1fr] lg:gap-16">
         <div>
           {/* TODO: swap for a real headshot */}
