@@ -1,5 +1,4 @@
 export const nav = {
-  name: "Andru Bailey",
   links: [
     { label: "Work", href: "/work" },
     { label: "About", href: "/about" },
@@ -9,7 +8,6 @@ export const nav = {
 };
 
 export const hero = {
-  eyebrow: "ANDRU BAILEY",
   headline: "Fixing websites that undersell your homes.",
   subheadline:
     "Positioning, design and builds that show your craftsmanship online as well as your homes do.",

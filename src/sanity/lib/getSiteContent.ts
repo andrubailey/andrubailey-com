@@ -14,7 +14,6 @@ type PortableTextSpan = { _type: "span"; text: string };
 type PortableTextBlock = { _type: string; children?: PortableTextSpan[] };
 
 type RawSiteSettings = {
-  heroEyebrow?: string;
   heroHeadline?: string;
   heroSubheadline?: string;
   ctaLabel?: string;
@@ -77,7 +76,6 @@ export async function getSiteContent() {
 
   return {
     hero: {
-      eyebrow: settings?.heroEyebrow || fallbackHero.eyebrow,
       headline: settings?.heroHeadline || fallbackHero.headline,
       subheadline: settings?.heroSubheadline || fallbackHero.subheadline,
       cta: { label: ctaLabel, href: fallbackHero.cta.href },

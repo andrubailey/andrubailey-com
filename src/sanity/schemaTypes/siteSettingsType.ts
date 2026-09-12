@@ -8,11 +8,6 @@ export const siteSettingsType = defineType({
   type: "document",
   fields: [
     defineField({
-      name: "heroEyebrow",
-      title: "Hero eyebrow",
-      type: "string",
-    }),
-    defineField({
       name: "heroHeadline",
       title: "Hero headline",
       type: "string",

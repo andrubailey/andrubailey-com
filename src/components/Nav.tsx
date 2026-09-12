@@ -9,11 +9,10 @@ export default function Nav({ ctaLabel }: { ctaLabel?: string }) {
   return (
     <header className="sticky top-0 z-50 border-b border-border-soft bg-white/90 backdrop-blur-sm">
       <div className="relative mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center">
           <span className="flex size-10 items-center justify-center rounded-full bg-soft text-sm font-medium">
             AB
           </span>
-          <span className="text-[16px] tracking-[-0.32px]">{nav.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-1 rounded-full bg-soft p-1 text-[14px] sm:flex">
