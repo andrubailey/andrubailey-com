@@ -19,6 +19,13 @@ export const faqType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "answerMobile",
+      title: "Answer (mobile)",
+      description: "Shorter mobile version — aim for 3 lines or less.",
+      type: "text",
+      rows: 3,
+    }),
+    defineField({
       name: "order",
       title: "Display order",
       type: "number",

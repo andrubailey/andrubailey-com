@@ -2,9 +2,10 @@
 
 import { useId, useState } from "react";
 import Reveal from "./Reveal";
+import Responsive from "./Responsive";
 import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
-function FaqItem({ q, a }: { q: string; a: string }) {
+function FaqItem({ q, a, aMobile }: { q: string; a: string; aMobile: string }) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
@@ -33,7 +34,11 @@ function FaqItem({ q, a }: { q: string; a: string }) {
         style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
       >
         <div className="min-h-0 overflow-hidden">
-          <p className="mt-4 text-[16px] leading-[1.5] tracking-[-0.32px] text-muted">{a}</p>
+          <Responsive
+            mobile={aMobile}
+            desktop={a}
+            className="mt-4 text-[16px] leading-[1.5] tracking-[-0.32px] text-muted"
+          />
         </div>
       </div>
     </div>
@@ -55,7 +60,7 @@ export default function Faq({ items }: { items: SiteContent["faqs"] }) {
           className="mt-12 divide-y divide-border-soft rounded-[32px] border border-border-soft bg-white"
         >
           {items.map((faq) => (
-            <FaqItem key={faq.q} q={faq.q} a={faq.a} />
+            <FaqItem key={faq.q} q={faq.q} a={faq.a} aMobile={faq.aMobile} />
           ))}
         </Reveal>
       </div>

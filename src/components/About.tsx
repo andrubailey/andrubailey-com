@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Responsive from "./Responsive";
 import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
 export default function About({ content }: { content: SiteContent["about"] }) {
@@ -17,7 +18,19 @@ export default function About({ content }: { content: SiteContent["about"] }) {
           >
             {content.headline}
           </h2>
-          <div className="mt-6 space-y-5">
+
+          <div className="mt-6 space-y-5 sm:hidden">
+            {content.bodyMobile.map((paragraph, i) => (
+              <p
+                key={paragraph.slice(0, 24)}
+                className="animate-fade-in-up max-w-2xl text-[15px] leading-[1.5] tracking-[-0.3px] text-muted"
+                style={{ animationDelay: `${140 + i * 60}ms` }}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+          <div className="mt-6 hidden space-y-5 sm:block">
             {content.body.map((paragraph, i) => (
               <p
                 key={paragraph.slice(0, 24)}
@@ -28,12 +41,13 @@ export default function About({ content }: { content: SiteContent["about"] }) {
               </p>
             ))}
           </div>
-          <p
+
+          <Responsive
+            mobile={content.ctaLeadMobile}
+            desktop={content.ctaLead}
             className="animate-fade-in-up mt-6 max-w-2xl text-[16px] font-medium leading-[1.5] tracking-[-0.32px] text-ink"
             style={{ animationDelay: "420ms" }}
-          >
-            {content.ctaLead}
-          </p>
+          />
           <div className="animate-fade-in-up mt-8" style={{ animationDelay: "480ms" }}>
             <Button href={content.cta.href}>{content.cta.label}</Button>
           </div>

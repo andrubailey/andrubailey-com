@@ -20,22 +20,33 @@ type RawSiteSettings = {
   ctaLabel?: string;
   whatYouDoHeadline?: string;
   whatYouDoSubheadline?: string;
+  whatYouDoSubheadlineMobile?: string;
   whatYouDoBody?: string;
+  whatYouDoBodyMobile?: string;
   aboutHeadline?: string;
   aboutBody?: PortableTextBlock[];
+  aboutBodyMobile?: PortableTextBlock[];
   aboutCtaLead?: string;
+  aboutCtaLeadMobile?: string;
   worksHeadline?: string;
   worksSubheadline?: string;
+  worksSubheadlineMobile?: string;
   processHeadline?: string;
   processSubheadline?: string;
+  processSubheadlineMobile?: string;
   footerHeadline?: string;
   contactEmail?: string;
   socialLinks?: { label: string; href: string }[];
   footerCredit?: string;
 } | null;
 
-type RawProcessStep = { _id: string; title: string; description: string };
-type RawFaq = { _id: string; question: string; answer: string };
+type RawProcessStep = {
+  _id: string;
+  title: string;
+  description: string;
+  descriptionMobile?: string;
+};
+type RawFaq = { _id: string; question: string; answer: string; answerMobile?: string };
 
 function portableTextToParagraphs(blocks?: PortableTextBlock[]): string[] {
   if (!blocks?.length) return [];
@@ -64,6 +75,14 @@ export async function getSiteContent() {
 
   const ctaLabel = settings?.ctaLabel || fallbackHero.cta.label;
   const aboutParagraphs = portableTextToParagraphs(settings?.aboutBody);
+  const aboutParagraphsMobile = portableTextToParagraphs(settings?.aboutBodyMobile);
+
+  const whatYouDoSubheadline = settings?.whatYouDoSubheadline || fallbackWhatYouDo.subheadline;
+  const whatYouDoBody = settings?.whatYouDoBody || fallbackWhatYouDo.body;
+  const aboutBody = aboutParagraphs.length ? aboutParagraphs : fallbackAbout.body;
+  const aboutCtaLead = settings?.aboutCtaLead || fallbackAbout.ctaLead;
+  const worksSubheadline = settings?.worksSubheadline || fallbackWorks.subheadline;
+  const processSubheadline = settings?.processSubheadline || fallbackProcess.subheadline;
 
   return {
     hero: {
@@ -74,36 +93,56 @@ export async function getSiteContent() {
     },
     whatYouDo: {
       headline: settings?.whatYouDoHeadline || fallbackWhatYouDo.headline,
-      subheadline: settings?.whatYouDoSubheadline || fallbackWhatYouDo.subheadline,
-      body: settings?.whatYouDoBody || fallbackWhatYouDo.body,
+      subheadline: whatYouDoSubheadline,
+      subheadlineMobile:
+        settings?.whatYouDoSubheadlineMobile ||
+        fallbackWhatYouDo.subheadlineMobile ||
+        whatYouDoSubheadline,
+      body: whatYouDoBody,
+      bodyMobile: settings?.whatYouDoBodyMobile || fallbackWhatYouDo.bodyMobile || whatYouDoBody,
       cta: fallbackWhatYouDo.cta,
     },
     about: {
       headline: settings?.aboutHeadline || fallbackAbout.headline,
-      body: aboutParagraphs.length ? aboutParagraphs : fallbackAbout.body,
-      ctaLead: settings?.aboutCtaLead || fallbackAbout.ctaLead,
+      body: aboutBody,
+      bodyMobile: aboutParagraphsMobile.length ? aboutParagraphsMobile : fallbackAbout.bodyMobile,
+      ctaLead: aboutCtaLead,
+      ctaLeadMobile: settings?.aboutCtaLeadMobile || fallbackAbout.ctaLeadMobile || aboutCtaLead,
       cta: { label: ctaLabel, href: fallbackAbout.cta.href },
     },
     works: {
       headline: settings?.worksHeadline || fallbackWorks.headline,
-      subheadline: settings?.worksSubheadline || fallbackWorks.subheadline,
+      subheadline: worksSubheadline,
+      subheadlineMobile:
+        settings?.worksSubheadlineMobile || fallbackWorks.subheadlineMobile || worksSubheadline,
       cta: fallbackWorks.cta,
     },
     process: {
       headline: settings?.processHeadline || fallbackProcess.headline,
-      subheadline: settings?.processSubheadline || fallbackProcess.subheadline,
-      steps:
-        processSteps?.length
-          ? processSteps.map((step, i) => ({
-              number: String(i + 1).padStart(2, "0"),
-              title: step.title,
-              description: step.description,
-            }))
-          : fallbackProcess.steps,
+      subheadline: processSubheadline,
+      subheadlineMobile:
+        settings?.processSubheadlineMobile ||
+        fallbackProcess.subheadlineMobile ||
+        processSubheadline,
+      steps: processSteps?.length
+        ? processSteps.map((step, i) => ({
+            number: String(i + 1).padStart(2, "0"),
+            title: step.title,
+            description: step.description,
+            descriptionMobile: step.descriptionMobile || step.description,
+          }))
+        : fallbackProcess.steps.map((step) => ({
+            ...step,
+            descriptionMobile: step.descriptionMobile || step.description,
+          })),
     },
     faqs: faqItems?.length
-      ? faqItems.map((f) => ({ q: f.question, a: f.answer }))
-      : fallbackFaqs,
+      ? faqItems.map((f) => ({
+          q: f.question,
+          a: f.answer,
+          aMobile: f.answerMobile || f.answer,
+        }))
+      : fallbackFaqs.map((f) => ({ q: f.q, a: f.a, aMobile: f.aMobile || f.a })),
     footer: {
       headline: settings?.footerHeadline || fallbackFooter.headline,
       cta: { label: ctaLabel, href: fallbackFooter.cta.href },

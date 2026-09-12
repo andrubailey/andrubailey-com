@@ -1,5 +1,7 @@
 import { defineField, defineType } from "sanity";
 
+const MOBILE_HINT = "Shorter mobile version — aim for 3 lines or less.";
+
 export const siteSettingsType = defineType({
   name: "siteSettings",
   title: "Site Settings",
@@ -39,8 +41,22 @@ export const siteSettingsType = defineType({
       rows: 2,
     }),
     defineField({
+      name: "whatYouDoSubheadlineMobile",
+      title: "\"How I can help\" sub-headline (mobile)",
+      description: MOBILE_HINT,
+      type: "text",
+      rows: 2,
+    }),
+    defineField({
       name: "whatYouDoBody",
       title: "\"How I can help\" highlighted body",
+      type: "text",
+      rows: 3,
+    }),
+    defineField({
+      name: "whatYouDoBodyMobile",
+      title: "\"How I can help\" highlighted body (mobile)",
+      description: MOBILE_HINT,
       type: "text",
       rows: 3,
     }),
@@ -57,8 +73,22 @@ export const siteSettingsType = defineType({
       of: [{ type: "block", styles: [], lists: [], marks: {} }],
     }),
     defineField({
+      name: "aboutBodyMobile",
+      title: "About body (mobile)",
+      description: `One paragraph per block. ${MOBILE_HINT}`,
+      type: "array",
+      of: [{ type: "block", styles: [], lists: [], marks: {} }],
+    }),
+    defineField({
       name: "aboutCtaLead",
       title: "About CTA lead-in line",
+      type: "text",
+      rows: 2,
+    }),
+    defineField({
+      name: "aboutCtaLeadMobile",
+      title: "About CTA lead-in line (mobile)",
+      description: MOBILE_HINT,
       type: "text",
       rows: 2,
     }),
@@ -74,6 +104,13 @@ export const siteSettingsType = defineType({
       rows: 2,
     }),
     defineField({
+      name: "worksSubheadlineMobile",
+      title: "Works section sub-headline (mobile)",
+      description: MOBILE_HINT,
+      type: "text",
+      rows: 2,
+    }),
+    defineField({
       name: "processHeadline",
       title: "Process section headline",
       type: "string",
@@ -81,6 +118,13 @@ export const siteSettingsType = defineType({
     defineField({
       name: "processSubheadline",
       title: "Process section sub-headline",
+      type: "text",
+      rows: 2,
+    }),
+    defineField({
+      name: "processSubheadlineMobile",
+      title: "Process section sub-headline (mobile)",
+      description: MOBILE_HINT,
       type: "text",
       rows: 2,
     }),

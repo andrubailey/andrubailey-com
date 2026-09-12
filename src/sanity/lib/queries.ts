@@ -20,7 +20,8 @@ export const PROCESS_STEPS_QUERY = defineQuery(
   `*[_type == "processStep"] | order(order asc){
     _id,
     title,
-    description
+    description,
+    descriptionMobile
   }`,
 );
 
@@ -28,6 +29,7 @@ export const FAQS_QUERY = defineQuery(
   `*[_type == "faq"] | order(order asc){
     _id,
     question,
-    answer
+    answer,
+    answerMobile
   }`,
 );

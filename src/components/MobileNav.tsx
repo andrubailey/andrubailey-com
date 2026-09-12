@@ -33,7 +33,7 @@ export default function MobileNav({ ctaLabel }: { ctaLabel: string }) {
           borderBottomWidth: open ? "1px" : "0px",
         }}
       >
-        <div className="overflow-hidden">
+        <div className="min-h-0 overflow-hidden">
           <nav className="flex flex-col gap-1 px-6 pt-2">
             {nav.links.map((link) => (
               <Link
