@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Button from "./Button";
+import Reveal from "./Reveal";
 import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
 export default function Footer({ content }: { content: SiteContent["footer"] }) {
   return (
     <footer id="contact" className="px-3 pb-3">
       <div className="rounded-[40px] bg-ink px-6 py-16 text-white sm:px-12 sm:py-20">
-        <div className="mx-auto max-w-2xl text-center">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-[36px] font-semibold leading-[1.1] tracking-[-1.44px] sm:text-[48px]">
             {content.headline}
           </h2>
@@ -15,7 +16,7 @@ export default function Footer({ content }: { content: SiteContent["footer"] }) 
               {content.cta.label}
             </Button>
           </div>
-        </div>
+        </Reveal>
 
         <div className="mx-auto mt-20 max-w-5xl">
           <div className="flex flex-col gap-12 sm:flex-row sm:justify-between">
@@ -32,7 +33,10 @@ export default function Footer({ content }: { content: SiteContent["footer"] }) 
                 <ul className="mt-4 space-y-3">
                   {content.pages.map((page) => (
                     <li key={page.label}>
-                      <Link href={page.href} className="text-[16px] tracking-[-0.32px]">
+                      <Link
+                        href={page.href}
+                        className="text-[16px] tracking-[-0.32px] transition-opacity hover:opacity-70"
+                      >
                         {page.label}
                       </Link>
                     </li>
@@ -44,7 +48,10 @@ export default function Footer({ content }: { content: SiteContent["footer"] }) 
                 <ul className="mt-4 space-y-3">
                   {content.social.map((s) => (
                     <li key={s.label}>
-                      <Link href={s.href} className="text-[16px] tracking-[-0.32px]">
+                      <Link
+                        href={s.href}
+                        className="text-[16px] tracking-[-0.32px] transition-opacity hover:opacity-70"
+                      >
                         {s.label}
                       </Link>
                     </li>

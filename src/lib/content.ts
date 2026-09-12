@@ -1,7 +1,7 @@
 export const nav = {
   name: "Andru Bailey",
   links: [
-    { label: "Work", href: "/#work" },
+    { label: "Work", href: "/work" },
     { label: "About", href: "/about" },
     { label: "FAQ", href: "/#faq" },
   ],
@@ -61,7 +61,7 @@ export const works = {
   headline: "Real homes, presented right.",
   subheadline:
     "A collection of recent projects where clear positioning, strong design, and real results come together.",
-  cta: { label: "See All Work", href: "#work" },
+  cta: { label: "See All Work", href: "/work" },
 };
 
 export const process = {
@@ -131,7 +131,7 @@ export const footer = {
   name: "Andru Bailey",
   pages: [
     { label: "Home", href: "/" },
-    { label: "Work", href: "/#work" },
+    { label: "Work", href: "/work" },
     { label: "About", href: "/about" },
     { label: "FAQ", href: "/#faq" },
   ],

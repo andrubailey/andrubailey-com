@@ -15,7 +15,7 @@ export default function Button({
   className = "",
 }: ButtonProps) {
   const base =
-    "inline-flex h-12 items-center justify-center rounded-full px-6 text-[16px] font-medium tracking-[-0.32px] transition-colors";
+    "inline-flex h-12 items-center justify-center rounded-full px-6 text-[16px] font-medium tracking-[-0.32px] transition-[background-color,transform] duration-200 hover:scale-[1.03] active:scale-[0.97] motion-reduce:hover:scale-100 motion-reduce:active:scale-100";
   const variants = {
     primary: "bg-accent text-ink hover:bg-[#a9de4f]",
     secondary: "bg-white text-ink border border-border-soft hover:bg-soft",

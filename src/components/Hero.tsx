@@ -15,22 +15,28 @@ export default function Hero({
     <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24">
       <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
         <div>
-          <p className="text-[15px] tracking-[-0.3px] text-muted sm:text-[16px] sm:tracking-[-0.32px]">
+          <p className="animate-fade-in-up text-[15px] tracking-[-0.3px] text-muted sm:text-[16px] sm:tracking-[-0.32px]">
             {content.eyebrow}
           </p>
           <h1 className="mt-6 text-[40px] font-semibold leading-[1.1] tracking-[-1.6px] sm:text-[56px] sm:tracking-[-2.24px]">
             {content.headline}
           </h1>
-          <p className="mt-6 max-w-md text-[15px] leading-[1.4] tracking-[-0.3px] text-muted sm:text-[16px] sm:tracking-[-0.32px]">
+          <p
+            className="animate-fade-in-up mt-6 max-w-md text-[15px] leading-[1.4] tracking-[-0.3px] text-muted sm:text-[16px] sm:tracking-[-0.32px]"
+            style={{ animationDelay: "80ms" }}
+          >
             {content.subheadline}
           </p>
-          <div className="mt-8">
+          <div className="animate-fade-in-up mt-8" style={{ animationDelay: "160ms" }}>
             <Button href={content.cta.href}>{content.cta.label}</Button>
           </div>
         </div>
 
         {featured && (
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[40px] bg-soft">
+          <div
+            className="animate-fade-in-up relative aspect-[4/3] overflow-hidden rounded-[40px] bg-soft"
+            style={{ animationDelay: "120ms" }}
+          >
             {featured.image ? (
               <Image
                 src={urlForImage(featured.image).width(1000).height(750).url()}

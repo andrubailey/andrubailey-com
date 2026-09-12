@@ -87,6 +87,7 @@ export async function getSiteContent() {
     works: {
       headline: settings?.worksHeadline || fallbackWorks.headline,
       subheadline: settings?.worksSubheadline || fallbackWorks.subheadline,
+      cta: fallbackWorks.cta,
     },
     process: {
       headline: settings?.processHeadline || fallbackProcess.headline,
