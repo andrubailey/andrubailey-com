@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Button from "./Button";
-import { hero, projects } from "@/lib/content";
+import { hero } from "@/lib/content";
+import { urlForImage } from "@/sanity/lib/image";
+import type { SanityProject } from "@/sanity/lib/getProjects";
 
-export default function Hero() {
-  const featured = projects[0];
-
+export default function Hero({ featured }: { featured?: SanityProject }) {
   return (
     <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24">
       <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
@@ -20,15 +21,28 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[40px] bg-soft">
-          {/* TODO: swap for a real screenshot of the {featured.title} build */}
-          <div className="absolute inset-0 flex items-end bg-gradient-to-br from-soft to-border-soft p-8">
-            <div>
-              <p className="text-[14px] tracking-[-0.28px] text-muted">{featured.category}</p>
-              <p className="mt-1 text-[24px] font-medium tracking-[-0.48px]">{featured.title}</p>
+        {featured && (
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[40px] bg-soft">
+            {featured.image ? (
+              <Image
+                src={urlForImage(featured.image).width(1000).height(750).url()}
+                alt={featured.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            ) : (
+              // TODO: add a cover image for this project in Sanity Studio (/studio)
+              <div className="absolute inset-0 bg-gradient-to-br from-soft to-border-soft" />
+            )}
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/40 to-transparent p-8 pt-16">
+              <p className="text-[14px] tracking-[-0.28px] text-white/80">{featured.category}</p>
+              <p className="mt-1 text-[24px] font-medium tracking-[-0.48px] text-white">
+                {featured.title}
+              </p>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

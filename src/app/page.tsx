@@ -6,16 +6,19 @@ import Works from "@/components/Works";
 import Process from "@/components/Process";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
+import { getProjects } from "@/sanity/lib/getProjects";
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
+
   return (
     <>
       <Nav />
       <main className="flex-1">
-        <Hero />
+        <Hero featured={projects[0]} />
         <WhatYouDo />
         <About />
-        <Works />
+        <Works projects={projects} />
         <Process />
         <Faq />
       </main>

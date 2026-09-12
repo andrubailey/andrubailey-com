@@ -1,6 +1,9 @@
-import { projects, works } from "@/lib/content";
+import Image from "next/image";
+import { works } from "@/lib/content";
+import { urlForImage } from "@/sanity/lib/image";
+import type { SanityProject } from "@/sanity/lib/getProjects";
 
-export default function Works() {
+export default function Works({ projects }: { projects: SanityProject[] }) {
   return (
     <section id="work" className="bg-soft py-24">
       <div className="mx-auto max-w-3xl px-6 text-center">
@@ -15,8 +18,8 @@ export default function Works() {
       <div className="mx-auto mt-16 flex max-w-5xl flex-col gap-6 px-6">
         {projects.map((project) => (
           <a
-            key={project.slug}
-            href={project.href}
+            key={project._id}
+            href={project.link}
             target="_blank"
             rel="noreferrer"
             className="grid overflow-hidden rounded-[40px] border border-border-soft bg-white sm:grid-cols-2"
@@ -35,8 +38,19 @@ export default function Works() {
                 View Project
               </span>
             </div>
-            {/* TODO: swap for a real screenshot of the {project.title} build */}
-            <div className="aspect-video bg-gradient-to-br from-soft to-border-soft sm:aspect-auto sm:min-h-[320px]" />
+            {project.image ? (
+              <div className="relative aspect-video sm:aspect-auto sm:min-h-[320px]">
+                <Image
+                  src={urlForImage(project.image).width(800).height(640).url()}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            ) : (
+              // TODO: add a cover image for this project in Sanity Studio (/studio)
+              <div className="aspect-video bg-gradient-to-br from-soft to-border-soft sm:aspect-auto sm:min-h-[320px]" />
+            )}
           </a>
         ))}
       </div>
