@@ -184,9 +184,8 @@ export const contact = {
   infoTitle: "Ready to talk now?",
   infoBody:
     "A short call to understand your projects, align on scope, and see if I'm the right fit before moving forward.",
-  // TODO: swap in a real scheduling link (Calendly, Cal.com, etc.).
   bookingLabel: "Book a call",
-  bookingHref: "#",
+  bookingHref: "https://cal.com/andru-bailey/strategy?overlayCalendar=true",
   bookingDuration: "10-15 minutes",
 };
 

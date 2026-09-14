@@ -42,6 +42,8 @@ export default function Contact({ content }: { content: SiteContent["contact"] }
           <div className="mt-auto flex flex-wrap items-center gap-4 pt-10">
             <Link
               href={content.bookingHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-12 w-fit items-center justify-center rounded-full border border-border-soft bg-white px-6 text-[16px] font-medium tracking-[-0.32px] text-ink transition-transform hover:scale-[1.03] active:scale-[0.97]"
             >
               {content.bookingLabel}
