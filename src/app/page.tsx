@@ -14,7 +14,7 @@ export default async function Home() {
 
   return (
     <>
-      <Nav ctaLabel={content.hero.cta.label} />
+      <Nav />
       <ViewTransition>
         <main className="flex-1">
           <Hero content={content.hero} featured={projects[0]} />

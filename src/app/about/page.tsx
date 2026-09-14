@@ -17,7 +17,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <Nav ctaLabel={content.hero.cta.label} />
+      <Nav />
       <ViewTransition>
         <main className="flex-1">
           <AboutHero content={content.about.hero} />

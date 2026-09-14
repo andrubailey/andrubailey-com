@@ -3,9 +3,8 @@ export const nav = {
   links: [
     { label: "Work", href: "/work" },
     { label: "About", href: "/about" },
-    { label: "FAQ", href: "/#faq" },
+    { label: "Contact", href: "/contact" },
   ],
-  cta: { label: "Get started", href: "/contact" },
 };
 
 export const hero = {

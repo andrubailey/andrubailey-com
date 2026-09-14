@@ -14,7 +14,7 @@ export default async function ContactPage() {
 
   return (
     <>
-      <Nav ctaLabel={content.hero.cta.label} />
+      <Nav />
       <ViewTransition>
         <main className="flex-1">
           <Contact content={content.contact} />
