@@ -12,6 +12,30 @@ export const PROJECTS_QUERY = defineQuery(
   }`,
 );
 
+export const PROJECT_QUERY = defineQuery(
+  `*[_type == "project" && slug.current == $slug][0]{
+    _id,
+    title,
+    "slug": slug.current,
+    category,
+    description,
+    image,
+    link,
+    client,
+    projectDate,
+    backgroundHeadline,
+    backgroundBody,
+    backgroundImages,
+    resultHeadline,
+    resultBody,
+    resultImages
+  }`,
+);
+
+export const PROJECT_SLUGS_QUERY = defineQuery(
+  `*[_type == "project"]{ "slug": slug.current }`,
+);
+
 export const SITE_SETTINGS_QUERY = defineQuery(
   `*[_type == "siteSettings"][0]`,
 );

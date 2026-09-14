@@ -75,6 +75,12 @@ export type Project = {
   description: string;
   href: string;
   image?: string;
+  client?: string;
+  date?: string;
+  backgroundHeadline?: string;
+  backgroundBody?: string;
+  resultHeadline?: string;
+  resultBody?: string;
 };
 
 // TODO: this will move into Sanity so new projects can be added without a code change.
