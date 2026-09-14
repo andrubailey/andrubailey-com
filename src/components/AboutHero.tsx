@@ -1,12 +1,18 @@
+import Image from "next/image";
 import Button from "./Button";
 import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
 export default function AboutHero({ content }: { content: SiteContent["about"]["hero"] }) {
   return (
     <section className="px-3 pt-3">
-      <div className="relative overflow-hidden rounded-[32px] sm:rounded-[40px]">
-        {/* TODO: swap for a real photo of Andru */}
-        <div className="aspect-[4/5] w-full bg-gradient-to-br from-soft to-border-soft sm:aspect-[16/9]" />
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[32px] sm:aspect-[16/9] sm:rounded-[40px]">
+        <Image
+          src="/andru.jpg"
+          alt={content.heading}
+          fill
+          priority
+          className="object-cover object-[center_20%]"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-40% to-ink" />
 
         <div className="absolute inset-x-6 bottom-6 sm:inset-x-20 sm:bottom-20">
