@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import Nav from "@/components/Nav";
 import Works from "@/components/Works";
 import Footer from "@/components/Footer";
@@ -15,9 +16,11 @@ export default async function WorkPage() {
   return (
     <>
       <Nav ctaLabel={content.hero.cta.label} />
-      <main className="flex-1">
-        <Works content={content.works} projects={projects} />
-      </main>
+      <ViewTransition>
+        <main className="flex-1">
+          <Works content={content.works} projects={projects} />
+        </main>
+      </ViewTransition>
       <Footer content={content.footer} />
     </>
   );

@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import WhatYouDo from "@/components/WhatYouDo";
@@ -14,13 +15,15 @@ export default async function Home() {
   return (
     <>
       <Nav ctaLabel={content.hero.cta.label} />
-      <main className="flex-1">
-        <Hero content={content.hero} featured={projects[0]} />
-        <WhatYouDo content={content.whatYouDo} />
-        <Works content={content.works} projects={projects} limit={2} />
-        <Process content={content.process} />
-        <Faq items={content.faqs} />
-      </main>
+      <ViewTransition>
+        <main className="flex-1">
+          <Hero content={content.hero} featured={projects[0]} />
+          <WhatYouDo content={content.whatYouDo} />
+          <Works content={content.works} projects={projects} limit={2} />
+          <Process content={content.process} />
+          <Faq items={content.faqs} />
+        </main>
+      </ViewTransition>
       <Footer content={content.footer} />
     </>
   );
