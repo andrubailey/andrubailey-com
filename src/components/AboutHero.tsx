@@ -7,11 +7,18 @@ export default function AboutHero({ content }: { content: SiteContent["about"]["
     <section className="px-3 pt-3">
       <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[32px] sm:aspect-[16/9] sm:rounded-[40px]">
         <Image
+          src="/andru-portrait.jpg"
+          alt={content.heading}
+          fill
+          priority
+          className="object-cover sm:hidden"
+        />
+        <Image
           src="/andru.jpg"
           alt={content.heading}
           fill
           priority
-          className="object-cover object-[center_20%]"
+          className="hidden object-cover object-[center_20%] sm:block"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-40% to-ink" />
 
