@@ -5,28 +5,61 @@ export const nav = {
     { label: "About", href: "/about" },
     { label: "FAQ", href: "/#faq" },
   ],
-  cta: { label: "Get started", href: "/#contact" },
+  cta: { label: "Get started", href: "/contact" },
 };
 
 export const hero = {
   headline: "Your Homes Are Exceptional. Your Website Should Make That Obvious.",
   subheadline:
     "I help custom home builders turn their website into the proof of quality buyers need before they trust you with a multi million dollar project.",
-  cta: { label: "Get started", href: "/#contact" },
+  cta: { label: "Get started", href: "/contact" },
 };
 
 export const about = {
-  headline: "I know firsthand how buyers make up their minds long before they call you.",
-  body: [
-    "Hey, I'm Andru Bailey. I've spent close to eight years designing and building websites, and after that, a couple of years in real estate. I wasn't in it long and I didn't sell much. But I learned something in those two years I've used ever since: the same property, presented two different ways, becomes two different prices in a buyer's head. Nothing about the building changes. Only what the buyer believes about it.",
-    "That's what I see on most builder sites. The homes are extraordinary. The website makes them look like everyone else's. If you're like most builders I talk to, you've got questions nobody's given you a straight answer to: Which projects should lead? Is my photography actually doing the work justice? How much should I explain the process versus just showing the homes? Do I put anything about the price on there? Do I even need a good site if most of my work comes from referrals?",
-    "That last one comes up constantly, and the answer is yes: a referral looks you up before they call. Your site isn't out finding you leads. It's deciding whether the ones you already have take you seriously.",
-    "The good news is you don't have to work any of this out on your own. That's my job. I'll go through your site the way a serious buyer would, tell you exactly what's costing you, and if it makes sense from there, build you one that finally matches the work.",
+  hero: {
+    heading: "Hi, I'm Andru Bailey.",
+    tagline: "I know firsthand how buyers make up their minds long before they call you.",
+    cta: { label: "Get started", href: "/contact" },
+  },
+  sections: [
+    {
+      headline: "Two careers, one insight.",
+      body: "Hey, I'm Andru Bailey. I've spent close to eight years designing and building websites, and after that, a couple of years in real estate. I wasn't in it long and I didn't sell much. But I learned something in those two years I've used ever since: the same property, presented two different ways, becomes two different prices in a buyer's head. Nothing about the building changes. Only what the buyer believes about it.",
+    },
+    {
+      headline: "The problem I keep seeing.",
+      body: "That's what I see on most builder sites. The homes are extraordinary. The website makes them look like everyone else's. If you're like most builders I talk to, you've got questions nobody's given you a straight answer to: Which projects should lead? Is my photography actually doing the work justice? How much should I explain the process versus just showing the homes? Do I put anything about the price on there? Do I even need a good site if most of my work comes from referrals? That last one comes up constantly, and the answer is yes: a referral looks you up before they call. Your site isn't out finding you leads. It's deciding whether the ones you already have take you seriously.",
+    },
+    {
+      headline: "How I can help.",
+      body: "The good news is you don't have to work any of this out on your own. That's my job. I'll go through your site the way a serious buyer would, tell you exactly what's costing you, and if it makes sense from there, build you one that finally matches the work.",
+    },
   ],
   ctaLead:
     "Send me your site and I'll tell you the three specific things costing you trust with serious buyers, in writing, within 48 hours.",
-  cta: { label: "Get started", href: "/#contact" },
+  cta: { label: "Get started", href: "/contact" },
 };
+
+export const workExperience = {
+  eyebrow: "Background",
+  headline: "A quick look at where I've worked.",
+};
+
+export type Experience = { role: string; company: string; period: string };
+
+// TODO: fill in real company names and dates via Sanity Studio (/studio).
+export const experience: Experience[] = [
+  {
+    role: "Web Designer",
+    company: "[Add company name, or \"Self-employed\"]",
+    period: "[Add years]",
+  },
+  {
+    role: "Real Estate Agent",
+    company: "[Add brokerage name]",
+    period: "[Add years]",
+  },
+];
 
 export const whatYouDo = {
   headline: "Here's How I Can Help",
@@ -146,9 +179,21 @@ export const faqs = [
   },
 ];
 
+export const contact = {
+  eyebrow: "Get in touch",
+  headline: "Let's build a site that finally matches your work.",
+  infoTitle: "Ready to talk now?",
+  infoBody:
+    "A short call to understand your projects, align on scope, and see if I'm the right fit before moving forward.",
+  // TODO: swap in a real scheduling link (Calendly, Cal.com, etc.).
+  bookingLabel: "Book a call",
+  bookingHref: "#",
+  bookingDuration: "10-15 minutes",
+};
+
 export const footer = {
   headline: "Need a site that shows the work the way it deserves?",
-  cta: { label: "Get started", href: "/#contact" },
+  cta: { label: "Get started", href: "/contact" },
   name: "Andru Bailey",
   pages: [
     { label: "Home", href: "/" },

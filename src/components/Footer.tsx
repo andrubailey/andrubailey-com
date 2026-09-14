@@ -1,21 +1,18 @@
 import Link from "next/link";
-import ContactForm from "./ContactForm";
+import Button from "./Button";
 import Reveal from "./Reveal";
 import type { SiteContent } from "@/sanity/lib/getSiteContent";
 
 export default function Footer({ content }: { content: SiteContent["footer"] }) {
   return (
-    <footer id="contact" className="px-3 pb-3">
+    <footer className="px-3 pb-3">
       <div className="rounded-[40px] bg-ink px-6 py-16 text-white sm:px-12 sm:py-20">
         <Reveal className="mx-auto max-w-2xl text-center">
           <h2 className="text-[36px] font-semibold leading-[1.1] tracking-[-1.44px] sm:text-[48px]">
             {content.headline}
           </h2>
-          <p className="mt-4 text-[16px] leading-[1.4] tracking-[-0.32px] text-white/60">
-            Send a note and I&apos;ll get back to you within a couple of days.
-          </p>
-          <div className="mt-10">
-            <ContactForm />
+          <div className="mt-8 flex justify-center">
+            <Button href={content.cta.href}>{content.cta.label}</Button>
           </div>
         </Reveal>
 

@@ -25,4 +25,11 @@ export const structure: StructureResolver = (S) =>
             { field: "order", direction: "asc" },
           ]),
         ),
+      S.documentTypeListItem("experience")
+        .title("Work Experience")
+        .child(
+          S.documentTypeList("experience").defaultOrdering([
+            { field: "order", direction: "asc" },
+          ]),
+        ),
     ]);

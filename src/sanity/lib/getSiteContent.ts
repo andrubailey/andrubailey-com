@@ -1,5 +1,6 @@
 import {
   about as fallbackAbout,
+  contact as fallbackContact,
   faqs as fallbackFaqs,
   footer as fallbackFooter,
   hero as fallbackHero,
@@ -10,9 +11,6 @@ import {
 import { client } from "./client";
 import { FAQS_QUERY, PROCESS_STEPS_QUERY, SITE_SETTINGS_QUERY } from "./queries";
 
-type PortableTextSpan = { _type: "span"; text: string };
-type PortableTextBlock = { _type: string; children?: PortableTextSpan[] };
-
 type RawSiteSettings = {
   heroHeadline?: string;
   heroSubheadline?: string;
@@ -20,8 +18,9 @@ type RawSiteSettings = {
   whatYouDoHeadline?: string;
   whatYouDoSubheadline?: string;
   whatYouDoBody?: string;
-  aboutHeadline?: string;
-  aboutBody?: PortableTextBlock[];
+  aboutHeroHeading?: string;
+  aboutHeroTagline?: string;
+  aboutSections?: { headline?: string; body?: string }[];
   aboutCtaLead?: string;
   worksHeadline?: string;
   worksSubheadline?: string;
@@ -30,6 +29,13 @@ type RawSiteSettings = {
   processSubheadline?: string;
   processSubheadlineMobile?: string;
   footerHeadline?: string;
+  contactPageEyebrow?: string;
+  contactPageHeadline?: string;
+  contactInfoTitle?: string;
+  contactInfoBody?: string;
+  contactBookingLabel?: string;
+  contactBookingHref?: string;
+  contactBookingDuration?: string;
   contactEmail?: string;
   socialLinks?: { label: string; href: string }[];
   footerCredit?: string;
@@ -42,16 +48,6 @@ type RawProcessStep = {
   descriptionMobile?: string;
 };
 type RawFaq = { _id: string; question: string; answer: string; answerMobile?: string };
-
-function portableTextToParagraphs(blocks?: PortableTextBlock[]): string[] {
-  if (!blocks?.length) return [];
-  return blocks
-    .filter((block) => block._type === "block")
-    .map((block) =>
-      (block.children ?? []).map((child) => child.text ?? "").join(""),
-    )
-    .filter(Boolean);
-}
 
 async function safeFetch<T>(query: Parameters<typeof client.fetch>[0]): Promise<T | null> {
   try {
@@ -69,7 +65,6 @@ export async function getSiteContent() {
   ]);
 
   const ctaLabel = settings?.ctaLabel || fallbackHero.cta.label;
-  const aboutParagraphs = portableTextToParagraphs(settings?.aboutBody);
 
   const worksSubheadline = settings?.worksSubheadline || fallbackWorks.subheadline;
   const processSubheadline = settings?.processSubheadline || fallbackProcess.subheadline;
@@ -87,8 +82,18 @@ export async function getSiteContent() {
       cta: fallbackWhatYouDo.cta,
     },
     about: {
-      headline: settings?.aboutHeadline || fallbackAbout.headline,
-      body: aboutParagraphs.length ? aboutParagraphs : fallbackAbout.body,
+      hero: {
+        heading: settings?.aboutHeroHeading || fallbackAbout.hero.heading,
+        tagline: settings?.aboutHeroTagline || fallbackAbout.hero.tagline,
+        cta: { label: ctaLabel, href: fallbackAbout.hero.cta.href },
+      },
+      sections:
+        settings?.aboutSections?.length
+          ? settings.aboutSections.map((s) => ({
+              headline: s.headline || "",
+              body: s.body || "",
+            }))
+          : fallbackAbout.sections,
       ctaLead: settings?.aboutCtaLead || fallbackAbout.ctaLead,
       cta: { label: ctaLabel, href: fallbackAbout.cta.href },
     },
@@ -125,6 +130,15 @@ export async function getSiteContent() {
           aMobile: f.answerMobile || f.answer,
         }))
       : fallbackFaqs.map((f) => ({ q: f.q, a: f.a, aMobile: f.aMobile || f.a })),
+    contact: {
+      eyebrow: settings?.contactPageEyebrow || fallbackContact.eyebrow,
+      headline: settings?.contactPageHeadline || fallbackContact.headline,
+      infoTitle: settings?.contactInfoTitle || fallbackContact.infoTitle,
+      infoBody: settings?.contactInfoBody || fallbackContact.infoBody,
+      bookingLabel: settings?.contactBookingLabel || fallbackContact.bookingLabel,
+      bookingHref: settings?.contactBookingHref || fallbackContact.bookingHref,
+      bookingDuration: settings?.contactBookingDuration || fallbackContact.bookingDuration,
+    },
     footer: {
       headline: settings?.footerHeadline || fallbackFooter.headline,
       cta: { label: ctaLabel, href: fallbackFooter.cta.href },

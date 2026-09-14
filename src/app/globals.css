@@ -21,6 +21,10 @@
   --font-sans: var(--font-dm-sans);
 }
 
+/* Lenis (in SmoothScroll.tsx) smooths wheel/touch scrolling. Anchor-link
+   jumps (nav hash links) stay on native smooth-scroll — Lenis's own anchor
+   handling races Next.js Link's client-side hash navigation and loses,
+   producing an instant jump instead of an eased one. */
 html {
   scroll-behavior: smooth;
 }

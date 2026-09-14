@@ -33,3 +33,12 @@ export const FAQS_QUERY = defineQuery(
     answerMobile
   }`,
 );
+
+export const EXPERIENCE_QUERY = defineQuery(
+  `*[_type == "experience"] | order(order asc){
+    _id,
+    role,
+    company,
+    period
+  }`,
+);

@@ -42,16 +42,35 @@ export const siteSettingsType = defineType({
       rows: 3,
     }),
     defineField({
-      name: "aboutHeadline",
-      title: "About headline",
+      name: "aboutHeroHeading",
+      title: "About page — hero heading",
+      description: "e.g. \"Hi, I'm [Name].\"",
       type: "string",
     }),
     defineField({
-      name: "aboutBody",
-      title: "About body",
-      description: "One paragraph per block.",
+      name: "aboutHeroTagline",
+      title: "About page — hero tagline",
+      type: "text",
+      rows: 2,
+    }),
+    defineField({
+      name: "aboutSections",
+      title: "About page — story sections",
+      description: "Each section renders as its own headline + paragraph block.",
       type: "array",
-      of: [{ type: "block", styles: [], lists: [], marks: {} }],
+      of: [
+        {
+          type: "object",
+          name: "aboutSection",
+          fields: [
+            defineField({ name: "headline", title: "Headline", type: "string" }),
+            defineField({ name: "body", title: "Body", type: "text", rows: 4 }),
+          ],
+          preview: {
+            select: { title: "headline" },
+          },
+        },
+      ],
     }),
     defineField({
       name: "aboutCtaLead",
@@ -98,6 +117,43 @@ export const siteSettingsType = defineType({
     defineField({
       name: "footerHeadline",
       title: "Footer CTA headline",
+      type: "string",
+    }),
+    defineField({
+      name: "contactPageEyebrow",
+      title: "Contact page eyebrow",
+      type: "string",
+    }),
+    defineField({
+      name: "contactPageHeadline",
+      title: "Contact page headline",
+      type: "string",
+    }),
+    defineField({
+      name: "contactInfoTitle",
+      title: "Contact page info card title",
+      type: "string",
+    }),
+    defineField({
+      name: "contactInfoBody",
+      title: "Contact page info card body",
+      type: "text",
+      rows: 3,
+    }),
+    defineField({
+      name: "contactBookingLabel",
+      title: "Contact page booking button label",
+      type: "string",
+    }),
+    defineField({
+      name: "contactBookingHref",
+      title: "Contact page booking button URL",
+      description: "Link to a scheduling tool (Calendly, Cal.com, etc.).",
+      type: "url",
+    }),
+    defineField({
+      name: "contactBookingDuration",
+      title: "Contact page booking duration caption",
       type: "string",
     }),
     defineField({

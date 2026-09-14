@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -17,7 +18,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${dmSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-ink">{children}</body>
+      <body className="min-h-full flex flex-col bg-white text-ink">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
