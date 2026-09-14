@@ -9,9 +9,9 @@ export const nav = {
 };
 
 export const hero = {
-  headline: "Fixing websites that undersell your homes.",
+  headline: "Your Homes Are Exceptional. Your Website Should Make That Obvious.",
   subheadline:
-    "Positioning, design and builds that show your craftsmanship online as well as your homes do.",
+    "I help custom home builders turn their website into the proof of quality buyers need before they trust you with a multi million dollar project.",
   cta: { label: "Get started", href: "/#contact" },
 };
 
